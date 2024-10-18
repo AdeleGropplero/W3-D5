@@ -501,14 +501,36 @@ console.log("Es.20", trovaContainer());
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+const findTd = () => {
+  const tds = document.querySelectorAll("td");
+  return tds;
+};
+console.log("Es.21", findTd());
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+const stampTds = function () {
+  const tds = document.querySelectorAll("td");
+
+  for (let i = 0; i < tds.length; i++) {
+    console.log(tds[i].innerText);
+  }
+};
+stampTds();
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+const redLinks = function () {
+  const links = document.querySelectorAll("a");
+  for (let i = 0; i < links.length; i++) {
+    const link = links[i];
+    link.style.backgroundColor = "red";
+    link.style.color = "white";
+  }
+};
+redLinks();
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
