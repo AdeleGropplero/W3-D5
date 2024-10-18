@@ -445,19 +445,47 @@ console.log("Es.15", onlyInLastMillennium(movies));
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
+const sumAllTheYears = function (moviesArray) {
+  let sum = 0;
+  for (let i = 0; i < moviesArray.length; i++) {
+    sum += parseInt(moviesArray[i].Year); //ho usato il parseInt altrimenti mi concatenava solo le stringhe
+  }
+  return sum;
+};
+console.log("Es.16", sumAllTheYears(movies));
 
 /* ESERCIZIO 17
-  Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
+  Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e 
+  ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+const itsInTheTitle = "the";
+const searchByTitle = function (moviesArray) {
+  return moviesArray.filter((movie) => movie.Title.includes(itsInTheTitle)); // non è case sensitive
+};
+console.log("Es.17", searchByTitle(movies));
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+const searchAndDivide = function (moviesArray, params) {
+  const obj = { match: [], unmatch: [] };
+  const match = moviesArray.filter((movie) => movie.Title.includes(params));
+  obj.match.push(match);
+  const unmatch = moviesArray.filter((movie) => !movie.Title.includes(params));
+  obj.unmatch.push(unmatch);
+
+  return obj;
+};
+console.log("Es.18", searchAndDivide(movies, "Lord of")); //in questo caso è case sensitive
 
 /* ESERCIZIO 19
-  Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
+  Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro 
+  e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+const removeIndex = function (num) {
+  return movies;
+};
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
