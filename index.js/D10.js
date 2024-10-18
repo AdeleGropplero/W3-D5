@@ -535,6 +535,13 @@ redLinks();
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+const ul = document.querySelector("ul");
+const li = function () {
+  const newLi = document.createElement("li");
+  newLi.innerText = "nuovo aggiunto";
+  ul.appendChild(newLi);
+};
+li();
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
