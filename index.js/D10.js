@@ -483,7 +483,7 @@ console.log("Es.18", searchAndDivide(movies, "Lord of")); //in questo caso è ca
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro 
   e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
-const removeIndex = function (num) {
+const removeIndex = function (arr, num) {
   return movies;
 };
 
@@ -492,6 +492,11 @@ const removeIndex = function (num) {
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+const trovaContainer = function () {
+  const div = document.getElementById("container");
+  return div;
+};
+console.log("Es.20", trovaContainer());
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
