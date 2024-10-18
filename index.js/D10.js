@@ -109,12 +109,28 @@ const splitMe = function (par) {
   }
   return capitalizedWord;
 };
-console.log(splitMe("Es.3", "ciao sono Adele"));
+console.log("Es.3", splitMe("ciao sono Adele"));
 
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
+
+const deleteone = function (par, bolean) {
+  const arr = par.split("");
+  if (bolean === true) {
+    return arr.slice(1).join("");
+  } else {
+    return arr.slice(0, -1).join("");
+  }
+};
+console.log(
+  "Es.4",
+  "caso 1",
+  deleteone("Adele", true),
+  "| caso 2",
+  deleteone("Adele", false)
+);
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
@@ -122,9 +138,42 @@ console.log(splitMe("Es.3", "ciao sono Adele"));
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+const onlyLetters = function (params) {
+  const arr = params.split(" ");
+  // console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    const word = arr[i];
+    if (!isNaN(word)) {
+      arr.splice(i, 1);
+    }
+  }
+  return arr.join(" ");
+};
+console.log("Es.5", onlyLetters("A casa mia vivono 2 gatti e 3 criceti"));
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
+
+const isThisAnEmail = function (params) {
+  //const arr = params.split(""); non necessario
+  // console.log(arr);
+  const chioccia = params.includes("@");
+  const dot = params.includes(".");
+
+  if (chioccia === true && dot === true) {
+    return "Valid email";
+  } else {
+    return "please enter a valid email";
+  }
+};
+
+console.log(
+  "Es.6",
+  isThisAnEmail("adele@hotmail.com"),
+  "| caso 2:",
+  isThisAnEmail("adele.com")
+);
 
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
