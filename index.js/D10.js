@@ -178,6 +178,23 @@ console.log(
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+const data = new Date();
+console.log(data);
+const arrayGiorni = [
+  "Domenica",
+  "Lunedì",
+  "Martedì",
+  "Mercoledì",
+  "Giovedì",
+  "Venerdì",
+  "Sabato",
+]; // qui ho dovuto mettere domenica per prima perchè getDay altrimenti mi diceva che era sabato.
+const whatDayIsIt = function () {
+  oggiNum = data.getDay();
+  //console.log(oggiNum);
+  return arrayGiorni[oggiNum];
+};
+console.log("Es.7", whatDayIsIt());
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -191,14 +208,49 @@ console.log(
       values: [3, 3, 4]
   }
 */
+const rollTheDices = function (num) {
+  const obj = {
+    sum: 0,
+    arrayOfExtracted: [],
+  };
+  for (let i = 0; i < num; i++) {
+    const valore = dice();
+    obj.sum += valore;
+    obj.arrayOfExtracted.push(valore);
+  }
+  return obj;
+};
+console.log("Es.8", rollTheDices(3));
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
+const oggi = new Date();
+//console.log(oggi);
+const howManyDays = function (dataScelta) {
+  const ieri = new Date(dataScelta);
+  const diff = oggi - ieri;
+  const diffInGiorni = diff / (1000 * 3600 * 24);
+  return diffInGiorni;
+};
+console.log("Es.9", "Sono passati", howManyDays("2024-10-18"), "giorni");
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+const isTodayMyBirthday = function (day, month) {
+  const mese = oggi.getMonth() + 1;
+  //console.log(mese); ad oggi: 10
+  const giorno = oggi.getDate();
+  //console.log(giorno); ad oggi: 18
+
+  if (day === giorno && month === mese) {
+    return "Tanti Auguri!!";
+  } else {
+    return "Buon non compleanno!";
+  }
+};
+console.log("Es.10", isTodayMyBirthday(19, 2));
 
 // Arrays & Oggetti
 
