@@ -391,6 +391,17 @@ console.log("Es.11", deleteProp("skills", me));
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+const newestMovie = function (moviesArray) {
+  let newest = 0;
+  moviesArray.forEach((movie) => {
+    if (movie.Year > newest) {
+      newest = movie.Year;
+    }
+  });
+  const Nuovo = moviesArray.filter((movie) => movie.Year === newest);
+  return Nuovo;
+};
+console.log("Es. 12", newestMovie(movies));
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
@@ -399,15 +410,37 @@ const countMovies = function () {
   const numeroFilm = movies.length;
   return numeroFilm;
 };
-console.log("Es.12", countMovies());
+console.log("Es.13", countMovies());
 
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
+/* 
+const onlyTheYears = function (moviesArray) {
+  const years = [];
+
+  for (let i = 0; i < moviesArray.length; i++) {
+    years.push(moviesArray[i].Year);
+  }
+  return years;
+};
+console.log("Es.14", onlyTheYears(movies)); 
+
+Meglio usare il metodo map che è decisamente più veloce
+*/
+const onlyTheYears = function (moviesArray) {
+  return moviesArray.map((movie) => movie.Year);
+};
+console.log("Es.14", onlyTheYears(movies));
 
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
+const onlyInLastMillennium = function (moviesArray) {
+  return moviesArray.filter((movie) => movie.Year < 2000);
+};
+
+console.log("Es.15", onlyInLastMillennium(movies));
 
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
