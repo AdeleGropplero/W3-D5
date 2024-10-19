@@ -550,6 +550,14 @@ li();
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+const tr = function () {
+  const trCss = document.getElementsByTagName("tr");
+  console.log(trCss);
+  for (let i = 0; i < trCss.length; i++) {
+    trCss[i].classList.add("test");
+  }
+};
+tr();
 
 // [EXTRA] JS Avanzato
 
